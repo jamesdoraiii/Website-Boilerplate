@@ -15,6 +15,7 @@ import Select from '@material-ui/core/Select'
 import Input from '@material-ui/core/Input'
 import MenuItem from '@material-ui/core/MenuItem'
 import useStyles from './styles'
+import { setupMaster } from 'cluster'
 
 export default function PaymentStep () {
   const classes = useStyles()
