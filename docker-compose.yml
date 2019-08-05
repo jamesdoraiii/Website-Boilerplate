@@ -1,0 +1,37 @@
+version: '3.3'
+
+services:
+  node:
+     build:
+         context: .
+     restart: always
+     ports:
+        - 3000:3000
+     command: ["./scripts/wait-for-it.sh", "postgres:5432", "--", "npm", "start"]
+     working_dir: /home/node/app
+     user: node
+     depends_on:
+        - postgres
+     environment:
+        NODE_ENV: development
+        DATABASE_URL: postgres://postgres@postgres:5432/project
+        SELF_URL: http://localhost:3000
+     volumes:
+        - ./:/home/node/app/
+  postgres:
+    image: postgres:10
+    user: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: project 
+      POSTGRES_USER: postgres
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      retries: 5

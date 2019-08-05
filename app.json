@@ -1,0 +1,24 @@
+{
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "required": true
+    },
+    "SELF_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "name": "lava",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}

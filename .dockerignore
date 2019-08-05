@@ -1,0 +1,15 @@
+.circleci
+.dockerignore
+.git
+.gitignore
+.next
+.ignore
+README.md
+dist
+docker-compose*
+node_modules
+nodemon.json
+npm-debug.log
+sample.env
+schema.json
+.docker-data
