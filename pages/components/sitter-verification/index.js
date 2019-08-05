@@ -16,7 +16,7 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import useStyles from './styles';
 
-export default function PaymentStep() {
+export default function VerificationStep() {
 	const classes = useStyles();
 	return (
 		<div>

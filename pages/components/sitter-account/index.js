@@ -16,93 +16,79 @@ import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import useStyles from './styles';
 
-export default function PaymentStep() {
+export default function AccountStep() {
 	const classes = useStyles();
 	return (
 		<div>
 			<Grid container spacing={3}>
+				<Grid item xs={12} sm={6}>
+					<TextField
+						variant="outlined"
+						id="standard-name"
+						label="First Name"
+						className={classes.textField}
+						// value={values.name}
+						// onChange={handleChange('name')}
+						margin="normal"
+					/>
+				</Grid>
+
+				<Grid item xs={12} sm={6}>
+					<TextField
+						variant="outlined"
+						id="standard-name"
+						label="Last Name"
+						className={classes.textField}
+						// value={values.name}
+						// onChange={handleChange('name')}
+						margin="normal"
+					/>
+				</Grid>
 				<Grid item xs={12}>
 					<TextField
 						variant="outlined"
 						id="standard-name"
-						label="Name on Card"
+						label="Email Address"
 						className={classes.textField}
 						// value={values.name}
 						// onChange={handleChange('name')}
 						margin="normal"
 					/>
 				</Grid>
-
-				<Grid item xs={12} sm={8}>
+				<Grid item xs={12} sm={6}>
 					<TextField
 						variant="outlined"
 						id="standard-name"
-						label="Card Number"
+						label="Password"
 						className={classes.textField}
 						// value={values.name}
 						// onChange={handleChange('name')}
 						margin="normal"
 					/>
 				</Grid>
-				<Grid item xs={12} sm={4}>
+				<Grid item xs={12} sm={6}>
 					<TextField
 						variant="outlined"
 						id="standard-name"
-						label="CVC"
+						label="Confirm Password"
 						className={classes.textField}
 						// value={values.name}
 						// onChange={handleChange('name')}
 						margin="normal"
 					/>
 				</Grid>
-				<Grid item xs={12} sm={4}>
-					<TextField
-						variant="outlined"
-						id="standard-name"
-						label="Expiration"
-						className={classes.textField}
-						// value={values.name}
-						// onChange={handleChange('name')}
-						margin="normal"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={4}>
-					<TextField
-						variant="outlined"
-						id="standard-name"
-						label="Expiration Month"
-						className={classes.textField}
-						// value={values.name}
-						// onChange={handleChange('name')}
-						margin="normal"
-					/>
-				</Grid>
-				<Grid item xs={12} sm={4}>
-					<TextField
-						variant="outlined"
-						id="standard-name"
-						label="Postal/ZIP Code"
-						className={classes.textField}
-						// value={values.name}
-						// onChange={handleChange('name')}
-						margin="normal"
-					/>
-				</Grid>
-
-				<Grid item xs={11}>
-					<TextField
-						variant="outlined"
-						id="standard-name"
-						label="Coupon Code"
-						className={classes.textField}
-						// value={values.name}
-						// onChange={handleChange('name')}
-						margin="normal"
-					/>
-				</Grid>
-				<Grid item xs={1}>
-					<Button className={classes.applyButton}>Apply</Button>
-				</Grid>
+			</Grid>
+			<Grid item xs={12}>
+				<FormControlLabel
+					control={
+						<Checkbox
+							checked={false}
+							// onChange={handleChange('checkedA')}
+							value="checkedA"
+						/>
+					}
+					label="I have read, understood, and accept the terms and conditions."
+				/>
 			</Grid>
 		</div>
 	);
