@@ -8,8 +8,40 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
+import InputLabel from '@material-ui/core/InputLabel';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
+
+const lookingFor = [
+	['Ocassional/Date Night', 'ocassionalDateNight'],
+	['Part Time', 'partTime'],
+	['Full Time', 'fullTime'],
+	['Before School', 'beforeSchool'],
+	['After School', 'afterSchool']
+];
+
+const numberOfChildren = [{ '1': 1 }, { '2': 2 }, { '3': 3 }, { '4+': 4 }];
+
+const ageRanges = [
+	['0-12 mo', 'ocassionalDateNight'],
+	['1-3 yrs', 'partTime'],
+	['4-7 yrs', 'fullTime'],
+	['8-11 yrs', 'beforeSchool'],
+	['12-14 yrs', 'afterSchool'],
+	['15-20 yrs', 'afterSchool']
+];
+
+const MenuProps = {
+	PaperProps: {
+		style: {
+			maxHeight: 48 * 4.5 + 8,
+			width: 250
+		}
+	}
+};
 
 const useStyles = makeStyles(theme => {
 	const colors = theme.palette.colors;
@@ -131,14 +163,29 @@ function getStepContent(stepIndex) {
 			return (
 				<Grid container spacing={3}>
 					<Grid Item xs={12}>
-						<TextField
-							id="standard-name"
-							label="Looking For"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
+						<FormControl className={classes.formControl}>
+							<InputLabel htmlFor="select-multiple-chip">Chip</InputLabel>
+							<Select
+								multiple
+								value={personName}
+								onChange={handleChange}
+								input={<Input id="select-multiple-chip" />}
+								renderValue={selected => (
+									<div className={classes.chips}>
+										{selected.map(value => (
+											<Chip key={value} label={value} className={classes.chip} />
+										))}
+									</div>
+								)}
+								MenuProps={MenuProps}
+							>
+								{names.map(name => (
+									<MenuItem key={name} value={name} style={getStyles(name, personName, theme)}>
+										{name}
+									</MenuItem>
+								))}
+							</Select>
+						</FormControl>
 					</Grid>
 					<Grid Item xs={12}>
 						<TextField
