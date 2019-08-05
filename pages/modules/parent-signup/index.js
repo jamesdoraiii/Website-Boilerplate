@@ -5,11 +5,9 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import UserInfoStep from '../../components/parent-user-info';
+import PersonalStep from '../../components/parent-personal-info';
+import PaymentStep from '../../components/parent-payment';
 
 const useStyles = makeStyles(theme => {
 	const colors = theme.palette.colors;
@@ -51,129 +49,11 @@ function getStepContent(stepIndex) {
 	const classes = useStyles();
 	switch (stepIndex) {
 		case 0:
-			return (
-				<Grid container spacing={3}>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-name"
-							label="First Name"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-name"
-							label="Last Name"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-name"
-							label="Username"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-name"
-							label="Email"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-name"
-							label="Password"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="standard-name"
-							label="Confirm Password"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid item xs={12}>
-						<FormControlLabel
-							control={
-								<Checkbox
-									checked={false}
-									// onChange={handleChange('checkedA')}
-									value="checkedA"
-								/>
-							}
-							label="I have read, understood, and accept the terms and conditions."
-						/>
-					</Grid>
-				</Grid>
-			);
+			return <UserInfoStep />;
 		case 1:
-			return (
-				<Grid container spacing={3}>
-					<Grid Item xs={12}>
-						<TextField
-							id="standard-name"
-							label="Looking For"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid Item xs={12}>
-						<TextField
-							id="standard-name"
-							label="Number of Children"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid Item xs={12}>
-						<TextField
-							id="standard-name"
-							label="Looking For"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-					<Grid Item xs={12}>
-						<TextField
-							id="standard-name"
-							label="Address"
-							className={classes.textField}
-							// value={values.name}
-							// onChange={handleChange('name')}
-							margin="normal"
-						/>
-					</Grid>
-				</Grid>
-			);
+			return <PersonalStep />;
 		case 2:
-			return 'This is the bit I really care about!';
+			return <PaymentStep />;
 		default:
 			return 'Uknown stepIndex';
 	}
